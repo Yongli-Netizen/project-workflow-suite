@@ -1,0 +1,6 @@
+interface:
+  display_name: "Amazon Requirements Discovery"
+  short_description: "澄清亚马逊工具需求并形成可验收项目基线"
+  default_prompt: "Use $amazon-requirements-discovery to clarify my Amazon operations-tool idea and obtain revision-bound user approval before implementation."
+policy:
+  allow_implicit_invocation: true
