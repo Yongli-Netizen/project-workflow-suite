@@ -1,0 +1,17 @@
+{
+  "$schema": "https://agent-plugins.org/schemas/1.0.0/plugin.schema.json",
+  "name": "project-workflow-suite",
+  "version": "0.3.0",
+  "description": "Amazon requirements discovery and persistent multi-agent delivery with local code intelligence.",
+  "author": {
+    "name": "Project Workflow Suite Contributors"
+  },
+  "keywords": [
+    "workflow",
+    "multi-agent",
+    "codebase-memory",
+    "handoff",
+    "quality-gates",
+    "amazon-requirements"
+  ]
+}

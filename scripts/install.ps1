@@ -13,9 +13,11 @@ $marketplacePath = Join-Path $marketplaceRoot ".agents\plugins\marketplace.json"
 
 $codex = Get-Command "codex" -ErrorAction Stop
 $cbm = Get-Command "codebase-memory-mcp" -ErrorAction SilentlyContinue
-if (-not $cbm) {
+$cbmFallback = Join-Path $env:LOCALAPPDATA "Programs\codebase-memory-mcp\codebase-memory-mcp.exe"
+if (-not $cbm -and -not (Test-Path -LiteralPath $cbmFallback -PathType Leaf)) {
     throw "codebase-memory-mcp is required. Install it from https://github.com/DeusData/codebase-memory-mcp, then run this installer again."
 }
+$cbmPath = if ($cbm) { $cbm.Source } else { $cbmFallback }
 
 New-Item -ItemType Directory -Force -Path $targetRoot | Out-Null
 Get-ChildItem -Force -LiteralPath $pluginRoot |
@@ -44,6 +46,6 @@ if ($LASTEXITCODE -ne 0) { throw "Codex marketplace registration failed with exi
 & $codex.Source plugin add "$pluginName@$marketplaceName"
 if ($LASTEXITCODE -ne 0) { throw "Codex plugin installation failed with exit code $LASTEXITCODE" }
 
-& $cbm.Source --version
+& $cbmPath --version
 if ($LASTEXITCODE -ne 0) { throw "codebase-memory-mcp version check failed" }
 Write-Host "Installation complete. Restart Codex and open a new task."

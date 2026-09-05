@@ -1,0 +1,10 @@
+interface:
+  display_name: "多 Agent 开发编排"
+  short_description: "用持久化任务、外部上下文与验收证据协调跨会话多 Agent 开发"
+  default_prompt: "使用 $project-workflow 读取项目状态和外部上下文，按依赖编排原生子 Agent 开发并完成验证。"
+
+dependencies:
+  tools:
+    - type: "mcp"
+      value: "codebase-memory-mcp"
+      description: "本地代码知识图谱、架构查询、增量索引与变更影响分析"

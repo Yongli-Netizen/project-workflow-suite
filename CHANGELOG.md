@@ -1,5 +1,12 @@
 # Changelog
 
+## 0.3.0 - 2026-09-06
+
+- 新增 Agent Plugins 1.0 根清单，兼容 Cursor 插件发现。
+- 新增 Cursor Windows 安装器和 `codebase-memory-mcp` 启动桥接。
+- 补齐 `project-workflow` Skill、两个 Skill 的测试和公开下载说明。
+- Windows 安装器兼容 `codebase-memory-mcp` 的 PATH 与默认用户安装目录。
+
 ## 0.2.0 - 2026-09-06
 
 - 增加面向公开下载的 README、许可证和发布清理规则。
